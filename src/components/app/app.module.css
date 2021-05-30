@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  max-width: 100%;
+  height: calc(100vh - 88px - 40px);
+  overflow-y: scroll;
+}
+
+.main > * {
+  flex: 1;
+}
