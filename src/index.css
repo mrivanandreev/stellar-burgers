@@ -19,3 +19,12 @@ body {
   max-width: unset !important;
   width: 100%;
 }
+
+.constructor-element__text {
+  height: 48px;
+  overflow: hidden;
+}
+
+.constructor-element__price {
+  margin-left: auto;
+}

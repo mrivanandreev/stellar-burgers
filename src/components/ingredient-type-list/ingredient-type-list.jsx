@@ -11,13 +11,12 @@ export const IngredientTypeList = ({ heading, list }) => {
       </h3>
       <div className={`${ingredientTypeListStyles.list} ml-4 mr-2`}>
         {list.map((item) => (
-          <React.Fragment key={item._id}>
-            <IngredientCard
-              name={item.name}
-              price={item.price}
-              image={item.image}
-            />
-          </React.Fragment>
+          <IngredientCard
+            key={item._id}
+            name={item.name}
+            price={item.price}
+            image={item.image}
+          />
         ))}
       </div>
     </>

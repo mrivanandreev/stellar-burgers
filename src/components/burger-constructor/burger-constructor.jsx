@@ -3,8 +3,12 @@ import constructorStyle from "./burger-constructor.module.css";
 import { LockBun } from "../lock-bun/lock-bun";
 import { DragConstructorIngredient } from "../drag-consructor-ingredient/drag-consructor-ingredient";
 import { CurrencyIcon, Button } from "@ya.praktikum/react-developer-burger-ui-components";
+import { data } from '../../utils/data';
 
 export const BurgerConstructor = () => {
+
+  const fillingBurger = data.filter(item => item.type === 'main' || item.type === 'sauce');
+
   return (
     <section className="ml-5 mr-5">
       <div
@@ -17,12 +21,14 @@ export const BurgerConstructor = () => {
           image="https://code.s3.yandex.net/react/code/bun-01.png"
         />
         <div className={constructorStyle.dragWrapper}>
-          <DragConstructorIngredient />
-          <DragConstructorIngredient />
-          <DragConstructorIngredient />
-          <DragConstructorIngredient />
-          <DragConstructorIngredient />
-          <DragConstructorIngredient />
+          {fillingBurger.map((item) => (
+            <DragConstructorIngredient
+              key={item._id}
+              name={item.name}
+              price={item.price}
+              image={item.image}
+            />
+          ))}
         </div>
         <LockBun
           type="bottom"
