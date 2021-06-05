@@ -1,0 +1,27 @@
+.tabs {
+  display: flex;
+}
+
+.tabs > * {
+  flex-grow: 1;
+}
+
+.ingredients {
+  height: calc(100vh - 323px);
+  overflow-y: scroll;
+  scrollbar-color: var(--background-element) var(--text-inactive-color);
+  scrollbar-width: thin;
+}
+
+.ingredients::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ingredients::-webkit-scrollbar-track {
+  background: var(--background-element);
+}
+
+.ingredients::-webkit-scrollbar-thumb {
+  background: var(--text-inactive-color);
+}
+ 
