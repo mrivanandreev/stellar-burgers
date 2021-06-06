@@ -7,7 +7,7 @@ import { Modal } from "../modal/modal";
 export const OrderDetails = (props) => (
   <Modal {...props}>
     <div className={`${orderDetailsStyles.wrapper} pb-30 pt-30`}>
-      <p className="text text_type_digits-large mb-8">034536</p>
+      <p className={`text text_type_digits-large mb-8 ${orderDetailsStyles.orderNumber}`} >034536</p>
       <p className="text text_type_main-medium mb-15">идентификатор заказа</p>
       <img src={orderDetailsIcon} alt="" className="mb-15" />
       <p className="text text_type_main-default mb-2">
