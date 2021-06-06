@@ -17,8 +17,8 @@ export const LockBun = ({ type, text, price, image }) => {
 };
 
 LockBun.propTypes = {
-  type: PropTypes.oneOf(['top', 'bottom']).isRequired,
-  text: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['top', 'bottom']),
+  text: PropTypes.string,
+  price: PropTypes.number,
+  image: PropTypes.string,
 };
