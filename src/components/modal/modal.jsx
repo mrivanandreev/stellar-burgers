@@ -10,7 +10,8 @@ const modalRoot = document.getElementById("modal-root");
 export const Modal = (props) => {
   const { isOpen, setOpen, children } = props;
 
-  const closeModal = () => {
+  const closeModal = (ev) => {
+    ev.stopPropagation();;
     setOpen(false);
   }
 
@@ -18,7 +19,7 @@ export const Modal = (props) => {
 
   const modal = (
     <>
-      <ModalOverlay onClick={closeModal} onKeyDown={closeModal} />
+      <ModalOverlay onClick={closeModal} />
       <section className={modalStyle.window}>
         <button className={`mt-15 mr-10 ${modalStyle.closeButton}`} onClick={closeModal}>
           <CloseIcon type="primary" />
