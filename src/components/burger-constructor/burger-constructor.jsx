@@ -23,10 +23,7 @@ export const BurgerConstructor = ({ ingredients }) => {
   };
 
   const costOfBurger = useMemo(() => {
-    const costOfIngredient = fillingBurger.reduce((acc, item) => {
-      console.log(item.price);
-      return acc + item.price;
-    }, 0);
+    const costOfIngredient = fillingBurger.reduce((acc, item) => acc + item.price, 0);
 
     return bun.price * 2 + costOfIngredient
   }, [fillingBurger, bun]);
