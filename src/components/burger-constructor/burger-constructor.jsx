@@ -16,6 +16,8 @@ export const BurgerConstructor = ({ ingredients }) => {
     (item) => item.type === "main" || item.type === "sauce"
   );
 
+  const bun = ingredients.filter((item) => item.type === "bun")[0];
+
   const handleOpenOrderDetailsModal = () => {
     setOrderDetailsModalOpen(true);
   };
@@ -25,12 +27,7 @@ export const BurgerConstructor = ({ ingredients }) => {
       <div
         className={`${constructorStyle.constructorWrapper} mt-25 ml-4 mb-10`}
       >
-        <LockBun
-          type="top"
-          text="Флюоресцентная булка R2-D3"
-          price={988}
-          image="https://code.s3.yandex.net/react/code/bun-01.png"
-        />
+        <LockBun type="top" bun={bun} />
         <div className={constructorStyle.dragWrapper}>
           {fillingBurger.map((item) => (
             <DragConstructorIngredient
@@ -41,12 +38,7 @@ export const BurgerConstructor = ({ ingredients }) => {
             />
           ))}
         </div>
-        <LockBun
-          type="bottom"
-          text="Краторная булка N-200i"
-          price={1255}
-          image="https://code.s3.yandex.net/react/code/bun-02.png"
-        />
+        <LockBun type="bottom" bun={bun} />
       </div>
       <div className={constructorStyle.footer}>
         <div className="mr-10">
@@ -85,5 +77,5 @@ BurgerConstructor.propTypes = {
       __v: PropTypes.number,
       _id: PropTypes.string,
     })
-  ),
+  ).isRequired,
 };
