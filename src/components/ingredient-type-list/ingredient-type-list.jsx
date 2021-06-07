@@ -9,7 +9,7 @@ export const IngredientTypeList = (props) => {
   return (
     <>
       <h3 className="text text_type_main-medium mt-10 mb-6">{heading}</h3>
-      <div className={`${ingredientTypeListStyles.list} ml-4 mr-2`}>
+      <ul className={`${ingredientTypeListStyles.list} ml-4 mr-2`}>
         {list.map((item) => (
           <IngredientCard
             key={item._id}
@@ -23,7 +23,7 @@ export const IngredientTypeList = (props) => {
             carbohydrates={item.carbohydrates}
           />
         ))}
-      </div>
+      </ul>
     </>
   );
 };

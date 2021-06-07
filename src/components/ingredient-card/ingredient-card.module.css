@@ -3,6 +3,7 @@
   text-align: center;
   width: 272px;
   cursor: pointer;
+  list-style: none;
 }
 
 .price {

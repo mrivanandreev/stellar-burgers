@@ -18,7 +18,7 @@ export const IngredientCard = (props) => {
   };
 
   return (
-    <div className={cardStyles.card} onClick={handleOpenIngredientDetailsModal}>
+    <li className={cardStyles.card} onClick={handleOpenIngredientDetailsModal}>
       <img src={image} alt={name} className="ml-4 mr-4" />
       <div className={`${cardStyles.price} mt-1 mb-1`}>
         <span className="text text_type_digits-default">{price}</span>
@@ -34,7 +34,7 @@ export const IngredientCard = (props) => {
         name={name}
         infoProps={otherProps}
       />
-    </div>
+    </li>
   );
 };
 
