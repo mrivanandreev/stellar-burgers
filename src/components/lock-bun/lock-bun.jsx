@@ -2,15 +2,17 @@ import React from 'react';
 import { ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
 import PropTypes from 'prop-types';
 
-export const LockBun = ({ type, text, price, image }) => {
+export const LockBun = (props) => {
+  const { type, bun } = props;
+
   return (
     <div className='ml-8 mr-4'>
       <ConstructorElement
         type={type}
         isLocked={true}
-        text={type === 'top' ? `${text} (верх)` : `${text} (низ)`}
-        price={price}
-        thumbnail={image}
+        text={type === 'top' ? `${bun.name} (верх)` : `${bun.name} (низ)`}
+        price={bun.price}
+        thumbnail={bun.image}
       />
     </div>
   );
@@ -18,7 +20,9 @@ export const LockBun = ({ type, text, price, image }) => {
 
 LockBun.propTypes = {
   type: PropTypes.oneOf(['top', 'bottom']),
-  text: PropTypes.string,
-  price: PropTypes.number,
-  image: PropTypes.string,
+  bun: PropTypes.shape({
+    name: PropTypes.string,
+    price: PropTypes.number,
+    image: PropTypes.string
+  })
 };
