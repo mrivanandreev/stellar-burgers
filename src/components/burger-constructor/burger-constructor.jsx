@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import {
   CurrencyIcon,
@@ -22,6 +22,15 @@ export const BurgerConstructor = ({ ingredients }) => {
     setOrderDetailsModalOpen(true);
   };
 
+  const costOfBurger = useMemo(() => {
+    const costOfIngredient = fillingBurger.reduce((acc, item) => {
+      console.log(item.price);
+      return acc + item.price;
+    }, 0);
+
+    return bun.price * 2 + costOfIngredient
+  }, [fillingBurger, bun]);
+
   return (
     <section className="ml-5 mr-5">
       <div
@@ -42,7 +51,7 @@ export const BurgerConstructor = ({ ingredients }) => {
       </div>
       <div className={constructorStyle.footer}>
         <div className="mr-10">
-          <span className="text text_type_digits-medium">610</span>
+          <span className="text text_type_digits-medium">{costOfBurger}</span>
           <CurrencyIcon type="primary" />
         </div>
         <Button
