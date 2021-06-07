@@ -14,7 +14,7 @@ export const AppHeader = () => {
         <nav className={headerStyle.nav}>
           <ul className={headerStyle.navList}>
             <li>
-              <a href='/' className={headerStyle.navLink}>
+              <a href='##' className={headerStyle.navLink}>
                 <BurgerIcon type='primary' />
                 <span className='text text_type_main-default ml-2'>
                   Конструктор
@@ -22,7 +22,7 @@ export const AppHeader = () => {
               </a>
             </li>
             <li>
-              <a href='/' className={headerStyle.navLink}>
+              <a href='##' className={headerStyle.navLink}>
                 <ListIcon type='secondary' />
                 <span className='text text_type_main-default text_color_inactive ml-2'>
                   Лента заказов
@@ -35,7 +35,7 @@ export const AppHeader = () => {
           <Logo />
         </div>
         <div className={headerStyle.account}>
-          <a href='/' className={headerStyle.navLink}>
+          <a href='##' className={headerStyle.navLink}>
             <ProfileIcon type='secondary' />
             <span className='text text_type_main-default text_color_inactive'>
               Личный кабинет
