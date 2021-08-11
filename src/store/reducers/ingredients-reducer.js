@@ -2,7 +2,7 @@ import {
   GET_INGREDIENTS,
   GET_INGREDIENTS_SUCCESS,
   GET_INGREDIENTS_FAIL,
-} from '../actions/getIngredients';
+} from '../actions/get-ingredients';
 
 const initialState = {
   isLoading: false,

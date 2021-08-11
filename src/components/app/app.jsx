@@ -5,7 +5,7 @@ import { BurgerIngredients } from "../burger-ingredients/burger-ingredients";
 import { BurgerConstructor } from "../burger-constructor/burger-constructor";
 import { InfoBlock } from "../info-block/info-block";
 import { useDispatch, useSelector } from "react-redux";
-import { getIngredients } from "../../store/actions/getIngredients";
+import { getIngredients } from "../../store/actions/get-ingredients";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(getIngredients());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
