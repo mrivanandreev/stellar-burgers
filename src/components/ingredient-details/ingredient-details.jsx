@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ingredientDetailsStyles from './ingredient-details.module.css';
 import { Modal } from '../modal/modal';
-import { CLOSE_DETAILS_MODAL} from '../../services/actions/details-modal';
+import { closeDetailsModal} from '../../services/actions/details-modal';
 
 export const IngredientDetails = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export const IngredientDetails = () => {
 
   const handleDetailsModalClose = () => {
     console.log('закрытие модалки');
-    dispatch({ type: CLOSE_DETAILS_MODAL });
+    dispatch(closeDetailsModal());
   };
 
   if (!isOpen) return null;
