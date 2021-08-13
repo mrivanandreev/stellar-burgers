@@ -1,32 +1,32 @@
-import React, { useMemo, useState } from "react";
-import PropTypes from "prop-types";
+import { useState, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import {
   CurrencyIcon,
   Button,
-} from "@ya.praktikum/react-developer-burger-ui-components";
-import constructorStyle from "./burger-constructor.module.css";
-import { LockBun } from "../lock-bun/lock-bun";
-import { DragConstructorIngredient } from "../drag-consructor-ingredient/drag-consructor-ingredient";
-import { OrderDetails } from "../order-details/order-details";
+} from '@ya.praktikum/react-developer-burger-ui-components';
+import constructorStyle from './burger-constructor.module.css';
+import { LockBun } from '../lock-bun/lock-bun';
+import { DragConstructorIngredient } from '../drag-consructor-ingredient/drag-consructor-ingredient';
+// import { OrderDetails } from '../order-details/order-details';
 
-export const BurgerConstructor = ({ ingredients }) => {
-  const [isOrderDetailsModalOpen, setOrderDetailsModalOpen] = useState(false);
-
-  const fillingBurger = ingredients.filter(
-    (item) => item.type === "main" || item.type === "sauce"
+export const BurgerConstructor = () => {
+  // const [isOrderDetailsModalOpen, setOrderDetailsModalOpen] = useState(false);
+  const { bun, burgerFilling } = useSelector(
+    (store) => store.burgerConstructor,
   );
 
-  const bun = ingredients.filter((item) => item.type === "bun")[0];
-
-  const handleOpenOrderDetailsModal = () => {
-    setOrderDetailsModalOpen(true);
-  };
+  // const handleOpenOrderDetailsModal = () => {
+  //   setOrderDetailsModalOpen(true);
+  // };
 
   const costOfBurger = useMemo(() => {
-    const costOfIngredient = fillingBurger.reduce((acc, item) => acc + item.price, 0);
+    const costOfIngredient = burgerFilling.reduce(
+      (acc, item) => acc + item.price,
+      0,
+    );
 
-    return bun.price * 2 + costOfIngredient
-  }, [fillingBurger, bun]);
+    return bun.price * 2 + costOfIngredient;
+  }, [burgerFilling, bun]);
 
   return (
     <section className="ml-5 mr-5">
@@ -35,7 +35,7 @@ export const BurgerConstructor = ({ ingredients }) => {
       >
         <LockBun type="top" bun={bun} />
         <div className={constructorStyle.dragWrapper}>
-          {fillingBurger.map((item) => (
+          {burgerFilling.map((item) => (
             <DragConstructorIngredient
               key={item._id}
               name={item.name}
@@ -54,34 +54,17 @@ export const BurgerConstructor = ({ ingredients }) => {
         <Button
           type="primary"
           size="large"
-          onClick={handleOpenOrderDetailsModal}
+          // onClick={handleOpenOrderDetailsModal}
         >
           Оформить заказ
         </Button>
       </div>
-      <OrderDetails
+      {/* <OrderDetails
         isOpen={isOrderDetailsModalOpen}
         setOpen={setOrderDetailsModalOpen}
-      />
+      /> */}
     </section>
   );
 };
 
-BurgerConstructor.propTypes = {
-  ingredients: PropTypes.arrayOf(
-    PropTypes.shape({
-      calories: PropTypes.number,
-      carbohydrates: PropTypes.number,
-      fat: PropTypes.number,
-      image: PropTypes.string,
-      image_large: PropTypes.string,
-      image_mobile: PropTypes.string,
-      name: PropTypes.string,
-      price: PropTypes.number,
-      proteins: PropTypes.number,
-      type: PropTypes.string,
-      __v: PropTypes.number,
-      _id: PropTypes.string,
-    })
-  ).isRequired,
-};
+BurgerConstructor.displayName = 'BurgerConstructor';

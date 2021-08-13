@@ -1,4 +1,3 @@
-import React from 'react';
 import headerStyle from './app-header.module.css';
 import {
   BurgerIcon,
@@ -14,17 +13,17 @@ export const AppHeader = () => {
         <nav className={headerStyle.nav}>
           <ul className={headerStyle.navList}>
             <li>
-              <a href='##' className={headerStyle.navLink}>
-                <BurgerIcon type='primary' />
-                <span className='text text_type_main-default ml-2'>
+              <a href="##" className={headerStyle.navLink}>
+                <BurgerIcon type="primary" />
+                <span className="text text_type_main-default ml-2">
                   Конструктор
                 </span>
               </a>
             </li>
             <li>
-              <a href='##' className={headerStyle.navLink}>
-                <ListIcon type='secondary' />
-                <span className='text text_type_main-default text_color_inactive ml-2'>
+              <a href="##" className={headerStyle.navLink}>
+                <ListIcon type="secondary" />
+                <span className="text text_type_main-default text_color_inactive ml-2">
                   Лента заказов
                 </span>
               </a>
@@ -35,9 +34,9 @@ export const AppHeader = () => {
           <Logo />
         </div>
         <div className={headerStyle.account}>
-          <a href='##' className={headerStyle.navLink}>
-            <ProfileIcon type='secondary' />
-            <span className='text text_type_main-default text_color_inactive'>
+          <a href="##" className={headerStyle.navLink}>
+            <ProfileIcon type="secondary" />
+            <span className="text text_type_main-default text_color_inactive">
               Личный кабинет
             </span>
           </a>

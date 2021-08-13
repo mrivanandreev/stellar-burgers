@@ -1,6 +1,8 @@
-import React from 'react';
 import dragIngredientStyle from './drag-consructor-ingredient.module.css';
-import { DragIcon, ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
+import {
+  DragIcon,
+  ConstructorElement,
+} from '@ya.praktikum/react-developer-burger-ui-components';
 import PropTypes from 'prop-types';
 
 export const DragConstructorIngredient = (props) => {
@@ -21,5 +23,5 @@ export const DragConstructorIngredient = (props) => {
 DragConstructorIngredient.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
-  image: PropTypes.string
-}
+  image: PropTypes.string,
+};

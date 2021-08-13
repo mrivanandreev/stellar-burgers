@@ -1,4 +1,3 @@
-import React from 'react';
 import { ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
 import PropTypes from 'prop-types';
 
@@ -6,7 +5,7 @@ export const LockBun = (props) => {
   const { type, bun } = props;
 
   return (
-    <div className='ml-8 mr-4'>
+    <div className="ml-8 mr-4">
       <ConstructorElement
         type={type}
         isLocked={true}
@@ -23,6 +22,6 @@ LockBun.propTypes = {
   bun: PropTypes.shape({
     name: PropTypes.string,
     price: PropTypes.number,
-    image: PropTypes.string
-  })
+    image: PropTypes.string,
+  }),
 };

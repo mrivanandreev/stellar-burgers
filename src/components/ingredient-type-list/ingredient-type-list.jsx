@@ -1,11 +1,10 @@
-import React from "react";
-import ingredientTypeListStyles from "./ingredient-type-list.module.css";
-import { IngredientCard } from "../ingredient-card/ingredient-card";
-import PropTypes from "prop-types";
+import ingredientTypeListStyles from './ingredient-type-list.module.css';
+import { IngredientCard } from '../ingredient-card/ingredient-card';
+import PropTypes from 'prop-types';
 
 export const IngredientTypeList = (props) => {
   const { heading, list } = props;
-  
+
   return (
     <>
       <h3 className="text text_type_main-medium mt-10 mb-6">{heading}</h3>
@@ -41,6 +40,6 @@ IngredientTypeList.propTypes = {
       proteins: PropTypes.number.isRequired,
       fat: PropTypes.number.isRequired,
       carbohydrates: PropTypes.number.isRequired,
-    })
+    }),
   ),
 };

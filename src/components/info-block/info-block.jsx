@@ -1,6 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
-import infoBlockStyle from "./info-block.module.css";
+import PropTypes from 'prop-types';
+import infoBlockStyle from './info-block.module.css';
 
 export const InfoBlock = ({ type }) => {
   return (
@@ -21,5 +20,5 @@ export const InfoBlock = ({ type }) => {
 };
 
 InfoBlock.propTypes = {
-  type: PropTypes.oneOf(['loading', 'error']).isRequired
-}
+  type: PropTypes.oneOf(['loading', 'error']).isRequired,
+};
