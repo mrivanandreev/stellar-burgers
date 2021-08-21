@@ -1,7 +1,17 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  /* минимальная высота установлена,
+  чтобы было видно две начинки в конструкторе,
+  и дропзона была адекватных размеров */
+  min-height: 700px;
+}
+
 .main {
+  flex: 1;
   display: flex;
   max-width: 100%;
-  height: calc(100vh - 88px - 40px);
   overflow-y: hidden;
   position: relative;
 }

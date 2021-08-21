@@ -1,4 +1,4 @@
-import headerStyle from './app-header.module.css';
+import styles from './app-header.module.css';
 import {
   BurgerIcon,
   ListIcon,
@@ -8,12 +8,12 @@ import {
 
 export const AppHeader = () => {
   return (
-    <header className={headerStyle.header}>
-      <div className={`app-container ${headerStyle.headerWrapper}`}>
-        <nav className={headerStyle.nav}>
-          <ul className={headerStyle.navList}>
+    <header className={styles.header}>
+      <div className={`app-container ${styles.headerWrapper}`}>
+        <nav className={styles.nav}>
+          <ul className={styles.navList}>
             <li>
-              <a href="##" className={headerStyle.navLink}>
+              <a href="##" className={styles.navLink}>
                 <BurgerIcon type="primary" />
                 <span className="text text_type_main-default ml-2">
                   Конструктор
@@ -21,7 +21,7 @@ export const AppHeader = () => {
               </a>
             </li>
             <li>
-              <a href="##" className={headerStyle.navLink}>
+              <a href="##" className={styles.navLink}>
                 <ListIcon type="secondary" />
                 <span className="text text_type_main-default text_color_inactive ml-2">
                   Лента заказов
@@ -30,11 +30,11 @@ export const AppHeader = () => {
             </li>
           </ul>
         </nav>
-        <div className={headerStyle.logo}>
+        <div className={styles.logo}>
           <Logo />
         </div>
-        <div className={headerStyle.account}>
-          <a href="##" className={headerStyle.navLink}>
+        <div className={styles.account}>
+          <a href="##" className={styles.navLink}>
             <ProfileIcon type="secondary" />
             <span className="text text_type_main-default text_color_inactive">
               Личный кабинет
@@ -45,3 +45,5 @@ export const AppHeader = () => {
     </header>
   );
 };
+
+AppHeader.displayName = 'AppHeader';

@@ -1,9 +1,11 @@
+import styles from './info-block.module.css';
 import PropTypes from 'prop-types';
-import infoBlockStyle from './info-block.module.css';
 
-export const InfoBlock = ({ type }) => {
+export const InfoBlock = (props) => {
+  const { type } = props;
+
   return (
-    <section className={infoBlockStyle.message}>
+    <section className={styles.message}>
       {type === 'loading' && (
         <p className="text text_type_main-large">Загрузка...</p>
       )}
@@ -22,3 +24,5 @@ export const InfoBlock = ({ type }) => {
 InfoBlock.propTypes = {
   type: PropTypes.oneOf(['loading', 'error']).isRequired,
 };
+
+InfoBlock.displayName = 'InfoBlock';

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import ingredientDetailsStyles from './ingredient-details.module.css';
+import styles from './ingredient-details.module.css';
 import { Modal } from '../modal/modal';
 import { closeDetailsModal} from '../../services/actions/details-modal';
 
@@ -10,41 +10,40 @@ export const IngredientDetails = () => {
     (store) => store.detailsModal,
   );
 
-  const handleDetailsModalClose = () => {
-    console.log('закрытие модалки');
+  const handleIngredientDetailsClose = () => {
     dispatch(closeDetailsModal());
   };
 
   if (!isOpen) return null;
 
   return (
-    <Modal onClose={handleDetailsModalClose}>
+    <Modal onClose={handleIngredientDetailsClose}>
       <div
-        className={`${ingredientDetailsStyles.wrapper} pt-10 pr-10 pb-15 pl-10`}
+        className={`${styles.wrapper} pt-10 pr-10 pb-15 pl-10`}
       >
         <h1
-          className={`${ingredientDetailsStyles.heading} text text_type_main-large`}
+          className={`${styles.heading} text text_type_main-large`}
         >
           Детали ингредиента
         </h1>
         <img src={details.image_large} alt={details.name} className="mb-4" />
         <p className="text text_type_main-medium mb-8">{details.name}</p>
         <div
-          className={`${ingredientDetailsStyles.supplementFactsBlock} text_color_inactive`}
+          className={`${styles.supplementFactsBlock} text_color_inactive`}
         >
-          <div className={ingredientDetailsStyles.supplementFact}>
+          <div className={styles.supplementFact}>
             <p className="text text_type_main-default">Калории,&nbsp;ккал</p>
             <p className="text text_type_digits-default">{details.calories}</p>
           </div>
-          <div className={ingredientDetailsStyles.supplementFact}>
+          <div className={styles.supplementFact}>
             <p className="text text_type_main-default">Белки,&nbsp;г</p>
             <p className="text text_type_digits-default">{details.proteins}</p>
           </div>
-          <div className={ingredientDetailsStyles.supplementFact}>
+          <div className={styles.supplementFact}>
             <p className="text text_type_main-default">Жиры,&nbsp;г</p>
             <p className="text text_type_digits-default">{details.fat}</p>
           </div>
-          <div className={ingredientDetailsStyles.supplementFact}>
+          <div className={styles.supplementFact}>
             <p className="text text_type_main-default">Углеводы,&nbsp;г</p>
             <p className="text text_type_digits-default">{details.carbohydrates}</p>
           </div>

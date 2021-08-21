@@ -1,3 +1,8 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .tabs {
   display: flex;
 }
@@ -7,7 +12,7 @@
 }
 
 .ingredients {
-  height: calc(100vh - 323px);
+  flex: 1;
   overflow-y: scroll;
   scrollbar-color: var(--background-element) var(--text-inactive-color);
   scrollbar-width: thin;
