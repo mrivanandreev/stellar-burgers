@@ -1,63 +1,39 @@
-import React, { useState, useEffect } from "react";
-import appStyles from "./app.module.css";
-import { AppHeader } from "../app-header/app-header";
-import { BurgerIngredients } from "../burger-ingredients/burger-ingredients";
-import { BurgerConstructor } from "../burger-constructor/burger-constructor";
-import { InfoBlock } from "../info-block/info-block";
-import { INGREDIENTS_URL } from "../../utils/constants";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import styles from './app.module.css';
+import { AppHeader } from '../app-header/app-header';
+import { BurgerIngredients } from '../burger-ingredients/burger-ingredients';
+import { BurgerConstructor } from '../burger-constructor/burger-constructor';
+import { InfoBlock } from '../info-block/info-block';
+import { getIngredients } from '../../services/actions/ingredients';
 
 export const App = () => {
-  const [ingredientsData, setIngredientsData] = useState({
-    ingredients: [],
-    isLoading: false,
-    isError: false,
-  });
+  const dispatch = useDispatch();
+  const { isLoading, isError } = useSelector((store) => store.ingredients);
 
-  const shouldRenderMainContent =
-    !ingredientsData.isLoading &&
-    !ingredientsData.isError &&
-    ingredientsData.ingredients.length > 0;
-
+  // загрузка данных при монтировании
   useEffect(() => {
-    const getIngredientsData = async () => {
-      setIngredientsData((prevState) => ({
-        ...prevState,
-        isLoading: true,
-      }));
-      try {
-        const response = await fetch(INGREDIENTS_URL);
-        const data = await response.json();
-        setIngredientsData((prevState) => ({
-          ...prevState,
-          isLoading: false,
-          ingredients: data.data,
-        }));
-      } catch {
-        setIngredientsData((prevState) => ({
-          ...prevState,
-          isLoading: false,
-          isError: true,
-        }));
-      }
-    };
-
-    getIngredientsData();
+    dispatch(getIngredients());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <>
+    <div className={styles.app}>
       <AppHeader />
-      <main className={`app-container ${appStyles.main}`}>
-        {ingredientsData.isLoading && <InfoBlock type="loading" />}
-        {ingredientsData.isError && <InfoBlock type="error" />}
-        {shouldRenderMainContent && (
-          <>
-            <BurgerIngredients ingredients={ingredientsData.ingredients} />
-            <BurgerConstructor ingredients={ingredientsData.ingredients} />
-          </>
+      <main className={`app-container ${styles.main}`}>
+        {isLoading && <InfoBlock type="loading" />}
+        {isError && <InfoBlock type="error" />}
+        {(!isLoading && !isError) && (
+          <DndProvider backend={HTML5Backend}>
+            <BurgerIngredients />
+            <BurgerConstructor />
+          </DndProvider>
         )}
       </main>
-    </>
+    </div>
   );
 };
+
+App.displayName = 'App';

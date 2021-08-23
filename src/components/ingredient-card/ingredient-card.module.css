@@ -6,6 +6,10 @@
   list-style: none;
 }
 
+.draggingCard {
+  opacity: .25;
+}
+
 .price {
   display: flex;
   justify-content: center;
